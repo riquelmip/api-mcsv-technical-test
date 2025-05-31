@@ -20,15 +20,10 @@ public class GatewayConfig {
                 .route("auth-service", r -> r.path("/api/mcsv-auth/**")
                         .uri("http://localhost:8090"))
 
-//                // Ruta para el servicio de estudiantes (students-service)
-//                .route("students-service", r -> r.path("/api/mcsv-students/**")
-//                        .filters(f -> f.filter(filter))
-//                        .uri("http://localhost:8091"))
-//
-//                // Ruta para el servicio de cursos (courses-service)
-//                .route("courses-service", r -> r.path("/api/mcsv-courses/**")
-//                        .filters(f -> f.filter(filter))
-//                        .uri("http://localhost:8092"))
+//                // Ruta para el servicio general (general-service)
+                .route("general-service", r -> r.path("/api/mcsv-general/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("http://localhost:8091"))
 
                 .build();
     }

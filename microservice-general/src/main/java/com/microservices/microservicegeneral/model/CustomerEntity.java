@@ -28,7 +28,6 @@ public class CustomerEntity {
     private String email;
 
     private String phone;
-    private String password;
 
     // Relaciones
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
