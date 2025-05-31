@@ -47,7 +47,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests(http -> {
                     // ENDPOINTS PÚBLICOS
                     http.requestMatchers(HttpMethod.POST, "/api/mcsv-auth/auth/**").permitAll();
-
                     // ENDPOINTS PRIVADOS
                     http.requestMatchers(HttpMethod.POST, "/api/mcsv-auth/users/**").hasAnyRole("ADMIN", "USER");
                     http.requestMatchers(HttpMethod.POST, "/api/mcsv-auth/roles/**").hasAnyRole("ADMIN");

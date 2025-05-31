@@ -108,5 +108,15 @@ public class AuthController {
         }
     }
 
+    @PostMapping("/create-user")
+    public ResponseEntity<ResponseObject> createUser(@RequestBody AuthCreateUserRequestDTO user) {
+        try {
+            UserEntity userCreated = userService.createUser(user);
+            return ResponseObject.build(true, HttpStatus.CREATED, "User created successfully", userCreated);
+        } catch (Exception e) {
+            return ResponseObject.build(false, HttpStatus.BAD_REQUEST, e.getMessage(), null);
+        }
+    }
+
 
 }

@@ -39,7 +39,6 @@ public class CustomerServiceImpl implements ICustomerService {
                 .map(customer -> {
                     customer.setFirstName(updatedCustomer.getFirstName());
                     customer.setLastName(updatedCustomer.getLastName());
-                    customer.setEmail(updatedCustomer.getEmail());
                     customer.setPhone(updatedCustomer.getPhone());
                     return customerRepository.save(customer);
                 }).orElseThrow(() -> new RuntimeException("Customer not found with id: " + id));

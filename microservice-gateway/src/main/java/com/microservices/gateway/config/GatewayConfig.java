@@ -20,7 +20,11 @@ public class GatewayConfig {
                 .route("auth-service", r -> r.path("/api/mcsv-auth/**")
                         .uri("http://localhost:8090"))
 
-//                // Ruta para el servicio general (general-service)
+                // Ruta específica para /mcsv-general/customers/create sin filtro
+                .route("general-service-no-filter", r -> r.path("/api/mcsv-general/customers/create")
+                        .uri("http://localhost:8091"))
+
+                // Ruta para el servicio general (general-service)
                 .route("general-service", r -> r.path("/api/mcsv-general/**")
                         .filters(f -> f.filter(filter))
                         .uri("http://localhost:8091"))
