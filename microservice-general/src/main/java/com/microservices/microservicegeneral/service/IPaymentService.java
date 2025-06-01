@@ -5,6 +5,6 @@ import com.microservices.microservicegeneral.model.PaymentEntity;
 import java.util.Optional;
 
 public interface IPaymentService {
-    PaymentEntity create(PaymentEntity payment);
+    PaymentEntity create(Long orderId);
     Optional<PaymentEntity> findByOrderId(Long orderId);
 }

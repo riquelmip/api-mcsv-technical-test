@@ -1,6 +1,7 @@
 package com.microservices.microservicegeneral.controller;
 
 
+import com.microservices.microservicegeneral.dto.OrderDTO;
 import com.microservices.microservicegeneral.model.OrderEntity;
 import com.microservices.microservicegeneral.service.implementation.OrderServiceImpl;
 import com.microservices.microservicegeneral.util.ResponseObject;
@@ -20,7 +21,7 @@ class OrderController {
     private OrderServiceImpl orderService;
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseObject> create(@RequestBody OrderEntity order) {
+    public ResponseEntity<ResponseObject> create(@RequestBody OrderDTO order) {
         try {
             return ResponseObject.build(true, HttpStatus.CREATED, "Order created successfully", orderService.create(order));
         } catch (Exception e) {

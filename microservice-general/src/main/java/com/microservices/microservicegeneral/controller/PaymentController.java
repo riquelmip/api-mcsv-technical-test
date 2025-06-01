@@ -19,9 +19,9 @@ class PaymentController {
     private PaymentServiceImpl paymentService;
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseObject> create(@RequestBody PaymentEntity payment) {
+    public ResponseEntity<ResponseObject> create(@RequestParam Long orderId) {
         try {
-            return ResponseObject.build(true, HttpStatus.CREATED, "Payment registered", paymentService.create(payment));
+            return ResponseObject.build(true, HttpStatus.CREATED, "Payment registered", paymentService.create(orderId));
         } catch (Exception e) {
             return ResponseObject.build(false, HttpStatus.BAD_REQUEST, e.getMessage(), null);
         }

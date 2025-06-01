@@ -1,5 +1,6 @@
 package com.microservices.microservicegeneral.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +21,7 @@ public class OrderDetailsEntity {
     private Long id;
 
     @ManyToOne(optional = false)
+    @JsonIgnore
     @JoinColumn(name = "order_id", nullable = false)
     private OrderEntity order;
 
