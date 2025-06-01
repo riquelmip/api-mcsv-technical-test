@@ -15,4 +15,6 @@ public interface ICustomerService {
     CustomerEntity updateCustomer(Long id, CustomerEntity customer);
 
     void deleteCustomer(Long id);
+
+    Optional<CustomerEntity> getCustomerByUserId(Integer userId);
 }

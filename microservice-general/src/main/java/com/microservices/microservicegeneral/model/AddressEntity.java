@@ -1,5 +1,6 @@
 package com.microservices.microservicegeneral.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +20,7 @@ public class AddressEntity {
     private Long id;
 
     @ManyToOne(optional = false)
+    @JsonIgnore
     @JoinColumn(name = "customer_id", nullable = false)
     private CustomerEntity customer;
 
@@ -36,4 +38,6 @@ public class AddressEntity {
 
     @Column(nullable = false)
     private String country;
+
+    private boolean status;
 }

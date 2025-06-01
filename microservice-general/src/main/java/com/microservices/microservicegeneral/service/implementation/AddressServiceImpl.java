@@ -25,7 +25,20 @@ public class AddressServiceImpl implements IAddressService {
 
     @Override
     public AddressEntity create(AddressEntity address) {
-        return addressRepository.save(address);
+        AddressEntity createdAddress = addressRepository.save(address);
+
+        // Validar si el estado lo trae true, entonces debe poner en false a los demas
+        if (createdAddress.isStatus()) {
+            List<AddressEntity> otherAddresses = addressRepository.findByCustomerId(createdAddress.getCustomer().getId());
+            for (AddressEntity addr : otherAddresses) {
+                if (!addr.getId().equals(createdAddress.getId())) {
+                    addr.setStatus(false);
+                    addressRepository.save(addr);
+                }
+            }
+        }
+
+        return createdAddress;
     }
 
     @Override

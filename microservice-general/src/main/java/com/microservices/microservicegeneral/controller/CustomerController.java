@@ -45,4 +45,13 @@ public class CustomerController {
             return ResponseObject.build(false, HttpStatus.BAD_REQUEST, e.getMessage(), null);
         }
     }
+
+    @PostMapping("/get-by-user-id")
+    public ResponseEntity<ResponseObject> getByUserId(@RequestParam Integer userId) {
+        try {
+            return ResponseObject.build(true, HttpStatus.OK, "Customer retrieved successfully", customerService.getCustomerByUserId(userId));
+        } catch (Exception e) {
+            return ResponseObject.build(false, HttpStatus.BAD_REQUEST, e.getMessage(), null);
+        }
+    }
 }

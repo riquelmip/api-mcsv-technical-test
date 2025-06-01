@@ -23,6 +23,7 @@ public class CustomerEntity {
     private String firstName;
     private String lastName;
     private String phone;
+    private Integer userId;
 
     // Relaciones
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
