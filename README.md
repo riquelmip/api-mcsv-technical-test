@@ -69,6 +69,14 @@ spring.datasource.password=password
    4. microservice-auth (Autenticación)
    5. microservice-general (Servicio de dominio principal)
 ```
+
+## 📌 **Importante**
+    📌 Si tiene instalado IntelliJ IDEA, es recomendable ejecutar el proyecto con este IDE, ya que permite ejecutar todos los microservicios de una manera más facil. 
+
+    📌 Para eso vea el archivo .pdf llamado EJECUCION DE PROYECTO MICROSERVICIOS.pdf que esta en la carpeta raiz del proyecto.
+
+Si no, probar lo siguiente
+
 📌 **Compilar todo el proyecto**
 ```bash
    mvn clean install
